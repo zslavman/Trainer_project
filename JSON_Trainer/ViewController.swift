@@ -12,9 +12,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        title = "Testing smth."
+        view.backgroundColor = .gray
+        setupLayout()
     }
-
+    
+    private func setupLayout() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Btn1", style: .plain,
+                                                           target: self, action: #selector(onLeftBttnTap))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Btn2", style: .plain,
+                                                            target: self, action: #selector(onRightBttnTap))
+    }
+    
+    @objc private func onLeftBttnTap() {
+        print(#function)
+    }
+    
+    @objc private func onRightBttnTap() {
+        print(#function)
+    }
 
 }
 

@@ -10,7 +10,6 @@
 		EF380A8B243D13200028C42F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF380A8A243D13200028C42F /* AppDelegate.swift */; };
 		EF380A8D243D13200028C42F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF380A8C243D13200028C42F /* SceneDelegate.swift */; };
 		EF380A8F243D13200028C42F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF380A8E243D13200028C42F /* ViewController.swift */; };
-		EF380A92243D13200028C42F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF380A90243D13200028C42F /* Main.storyboard */; };
 		EF380A94243D13200028C42F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF380A93243D13200028C42F /* Assets.xcassets */; };
 		EF380A97243D13200028C42F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF380A95243D13200028C42F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		EF380A8A243D13200028C42F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF380A8C243D13200028C42F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EF380A8E243D13200028C42F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EF380A91243D13200028C42F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF380A93243D13200028C42F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF380A96243D13200028C42F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF380A98243D13200028C42F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,22 @@
 		EF380A89243D13200028C42F /* JSON_Trainer */ = {
 			isa = PBXGroup;
 			children = (
-				EF380A8A243D13200028C42F /* AppDelegate.swift */,
-				EF380A8C243D13200028C42F /* SceneDelegate.swift */,
 				EF380A8E243D13200028C42F /* ViewController.swift */,
-				EF380A90243D13200028C42F /* Main.storyboard */,
-				EF380A93243D13200028C42F /* Assets.xcassets */,
-				EF380A95243D13200028C42F /* LaunchScreen.storyboard */,
-				EF380A98243D13200028C42F /* Info.plist */,
+				EF380A9E243D18FD0028C42F /* Supporting Files */,
 			);
 			path = JSON_Trainer;
+			sourceTree = "<group>";
+		};
+		EF380A9E243D18FD0028C42F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF380A98243D13200028C42F /* Info.plist */,
+				EF380A93243D13200028C42F /* Assets.xcassets */,
+				EF380A95243D13200028C42F /* LaunchScreen.storyboard */,
+				EF380A8A243D13200028C42F /* AppDelegate.swift */,
+				EF380A8C243D13200028C42F /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +132,6 @@
 			files = (
 				EF380A97243D13200028C42F /* LaunchScreen.storyboard in Resources */,
 				EF380A94243D13200028C42F /* Assets.xcassets in Resources */,
-				EF380A92243D13200028C42F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +151,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EF380A90243D13200028C42F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF380A91243D13200028C42F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EF380A95243D13200028C42F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -286,7 +282,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LC7P3687MC;
-				INFOPLIST_FILE = JSON_Trainer/Info.plist;
+				INFOPLIST_FILE = "JSON_Trainer/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +301,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LC7P3687MC;
-				INFOPLIST_FILE = JSON_Trainer/Info.plist;
+				INFOPLIST_FILE = "JSON_Trainer/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
