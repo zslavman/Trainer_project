@@ -12,6 +12,9 @@
 		EF380A8F243D13200028C42F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF380A8E243D13200028C42F /* ViewController.swift */; };
 		EF380A94243D13200028C42F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF380A93243D13200028C42F /* Assets.xcassets */; };
 		EF380A97243D13200028C42F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF380A95243D13200028C42F /* LaunchScreen.storyboard */; };
+		EF380AA4243D1ECD0028C42F /* index.json in Resources */ = {isa = PBXBuildFile; fileRef = EF380AA3243D1ECD0028C42F /* index.json */; };
+		EF380AA8243D328C0028C42F /* JSON+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF380AA7243D328C0028C42F /* JSON+Extension.swift */; };
+		EF851599243E547300509B85 /* ViewControllerJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF851598243E547300509B85 /* ViewControllerJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		EF380A93243D13200028C42F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF380A96243D13200028C42F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF380A98243D13200028C42F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF380AA3243D1ECD0028C42F /* index.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = index.json; sourceTree = "<group>"; };
+		EF380AA7243D328C0028C42F /* JSON+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Extension.swift"; sourceTree = "<group>"; };
+		EF851598243E547300509B85 /* ViewControllerJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +60,10 @@
 		EF380A89243D13200028C42F /* JSON_Trainer */ = {
 			isa = PBXGroup;
 			children = (
+				EF380AA7243D328C0028C42F /* JSON+Extension.swift */,
 				EF380A8E243D13200028C42F /* ViewController.swift */,
+				EF851598243E547300509B85 /* ViewControllerJSON.swift */,
+				EF380AA3243D1ECD0028C42F /* index.json */,
 				EF380A9E243D18FD0028C42F /* Supporting Files */,
 			);
 			path = JSON_Trainer;
@@ -131,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF380A97243D13200028C42F /* LaunchScreen.storyboard in Resources */,
+				EF380AA4243D1ECD0028C42F /* index.json in Resources */,
 				EF380A94243D13200028C42F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF380A8F243D13200028C42F /* ViewController.swift in Sources */,
+				EF380AA8243D328C0028C42F /* JSON+Extension.swift in Sources */,
 				EF380A8B243D13200028C42F /* AppDelegate.swift in Sources */,
+				EF851599243E547300509B85 /* ViewControllerJSON.swift in Sources */,
 				EF380A8D243D13200028C42F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +294,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LC7P3687MC;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = "JSON_Trainer/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -301,6 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LC7P3687MC;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = "JSON_Trainer/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
