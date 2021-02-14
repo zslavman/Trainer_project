@@ -13,6 +13,8 @@ class CompositionCollectionVC: UIViewController {
     enum SectionKind: Int, CaseIterable {
         case sectionOne_list
         case sectionTwo_grid
+        case sectionTwo_grid2
+        case sectionTwo_grid3
         
         init(intVal: Int) {
             if let safeInstance = SectionKind(rawValue: intVal) {
@@ -52,6 +54,7 @@ class CompositionCollectionVC: UIViewController {
     private func createLayout() -> UICollectionViewLayout {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 40
+        //config.scrollDirection = .horizontal
         
         let layout = UICollectionViewCompositionalLayout(sectionProvider: {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
@@ -59,38 +62,24 @@ class CompositionCollectionVC: UIViewController {
             switch section {
             case .sectionOne_list: return self.createListLayoutSection()
             case .sectionTwo_grid: return self.createGridLayoutSection()
+            default: return self.createGridLayoutSection()
             }
         }, configuration: config)
-        
+
         return layout
     }
     
     
-    private func createGridLayoutSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension : .fractionalWidth(0.5),
-                                              heightDimension: .fractionalHeight(0.5))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-        
-        let containerGroupLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                                              heightDimension: .fractionalHeight(0.5))
-        let containerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: containerGroupLayoutSize,
-                                                                subitems: [item])
-        let section = NSCollectionLayoutSection(group: containerGroup)
-        section.orthogonalScrollingBehavior = .continuous
-        return section
-    }
-    
-    
+    /// top collection
     private func createListLayoutSection() -> NSCollectionLayoutSection {
         // section -> groups -> items -> size
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                              heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                heightDimension: .fractionalWidth(0.2))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
-        let spacing = CGFloat(20)
+        let spacing = CGFloat(10)
         group.interItemSpacing = .fixed(spacing)
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = spacing
@@ -99,6 +88,24 @@ class CompositionCollectionVC: UIViewController {
     }
     
     
+    /// bottom collection with paging
+    private func createGridLayoutSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension : .fractionalWidth(0.5),
+                                              heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        
+        let containerGroupLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
+                                                              heightDimension: .fractionalHeight(0.3))
+        let containerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: containerGroupLayoutSize,
+                                                                //subitems: [item])
+                                                                subitem: item, count: 1)
+        let section = NSCollectionLayoutSection(group: containerGroup)
+        section.orthogonalScrollingBehavior = .groupPaging
+        return section
+    }
+    
+      
     private func setupDataSource() {
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: {
             (collectionView: UICollectionView, indexPath: IndexPath, _ ) -> UICollectionViewCell? in
@@ -116,6 +123,12 @@ class CompositionCollectionVC: UIViewController {
                                                               for: indexPath) as! SecondCell
                 cell.configure(color: .green)
                 return cell
+                
+            default:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SecondCell.reuseID,
+                                                              for: indexPath) as! SecondCell
+                cell.configure(color: .blue)
+                return cell
             }
         })
         reloadData()
@@ -125,7 +138,7 @@ class CompositionCollectionVC: UIViewController {
     func reloadData() {
         var snapshot = NSDiffableDataSourceSnapshot<SectionKind, Int>()
         var identifierOffset = 0
-        let itemsPerSection_list = 15
+        let itemsPerSection_list = 14
         let itemsPerSection_grid = 30
         
         SectionKind.allCases.forEach {
