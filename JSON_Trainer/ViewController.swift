@@ -17,7 +17,6 @@ class ViewController: UIViewController {
         title = "Testing smth."
         view.backgroundColor = .gray
         setupLayout()
-        autoRunExe()
     }
     
     private func setupLayout() {
@@ -44,8 +43,8 @@ class ViewController: UIViewController {
     
     
     internal func run2() {
-        let allCases = DeckTypes.allCases
-        let allRaws = DeckTypes.allCases.map{ $0.rawValue }
+        //let allCases = DeckTypes.allCases
+        //let allRaws = DeckTypes.allCases.map{ $0.rawValue }
         print()
     }
     
@@ -56,14 +55,14 @@ class ViewController: UIViewController {
 }
     
 enum DeckTypes: Int, CaseIterable {
-    case universal = 100 // 0
-    case portrait   // 1
-    case resource   // 2
-    case text       // 3
-    case photo      // 4
-    case plot       // 5
-    case mixed      // 6
-    case art_reprod // 7
+    case universal  = 100
+    case portrait
+    case resource
+    case text
+    case photo      = 150
+    case plot
+    case mixed
+    case art_reprod
   
     var descript: String {
         switch self.rawValue {

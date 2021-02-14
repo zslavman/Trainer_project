@@ -15,6 +15,9 @@
 		EF380AA4243D1ECD0028C42F /* index.json in Resources */ = {isa = PBXBuildFile; fileRef = EF380AA3243D1ECD0028C42F /* index.json */; };
 		EF380AA8243D328C0028C42F /* JSON+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF380AA7243D328C0028C42F /* JSON+Extension.swift */; };
 		EF851599243E547300509B85 /* ViewControllerJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF851598243E547300509B85 /* ViewControllerJSON.swift */; };
+		EFA2753A25D941DC00994E51 /* CompositionCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2753925D941DC00994E51 /* CompositionCollectionVC.swift */; };
+		EFA2754025D9669B00994E51 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2753F25D9669B00994E51 /* Reusable.swift */; };
+		EFA2754725D969D700994E51 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2754625D969D700994E51 /* SampleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		EF380AA3243D1ECD0028C42F /* index.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = index.json; sourceTree = "<group>"; };
 		EF380AA7243D328C0028C42F /* JSON+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Extension.swift"; sourceTree = "<group>"; };
 		EF851598243E547300509B85 /* ViewControllerJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerJSON.swift; sourceTree = "<group>"; };
+		EFA2753925D941DC00994E51 /* CompositionCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCollectionVC.swift; sourceTree = "<group>"; };
+		EFA2753F25D9669B00994E51 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		EFA2754625D969D700994E51 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,7 @@
 		EF380A7E243D13200028C42F = {
 			isa = PBXGroup;
 			children = (
+				EFA2753E25D9666300994E51 /* Extensions */,
 				EF380A89243D13200028C42F /* JSON_Trainer */,
 				EF380A88243D13200028C42F /* Products */,
 			);
@@ -63,6 +70,7 @@
 				EF380AA7243D328C0028C42F /* JSON+Extension.swift */,
 				EF380A8E243D13200028C42F /* ViewController.swift */,
 				EF851598243E547300509B85 /* ViewControllerJSON.swift */,
+				EFA2753925D941DC00994E51 /* CompositionCollectionVC.swift */,
 				EF380AA3243D1ECD0028C42F /* index.json */,
 				EF380A9E243D18FD0028C42F /* Supporting Files */,
 			);
@@ -79,6 +87,31 @@
 				EF380A8C243D13200028C42F /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EFA2753E25D9666300994E51 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EFA2754425D969BB00994E51 /* Views */,
+				EFA2753F25D9669B00994E51 /* Reusable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EFA2754425D969BB00994E51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EFA2754525D969C400994E51 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EFA2754525D969C400994E51 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EFA2754625D969D700994E51 /* SampleCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +188,11 @@
 				EF380A8F243D13200028C42F /* ViewController.swift in Sources */,
 				EF380AA8243D328C0028C42F /* JSON+Extension.swift in Sources */,
 				EF380A8B243D13200028C42F /* AppDelegate.swift in Sources */,
+				EFA2753A25D941DC00994E51 /* CompositionCollectionVC.swift in Sources */,
 				EF851599243E547300509B85 /* ViewControllerJSON.swift in Sources */,
+				EFA2754725D969D700994E51 /* SampleCell.swift in Sources */,
 				EF380A8D243D13200028C42F /* SceneDelegate.swift in Sources */,
+				EFA2754025D9669B00994E51 /* Reusable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
