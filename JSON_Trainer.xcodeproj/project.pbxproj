@@ -18,6 +18,7 @@
 		EFA2753A25D941DC00994E51 /* CompositionCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2753925D941DC00994E51 /* CompositionCollectionVC.swift */; };
 		EFA2754025D9669B00994E51 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2753F25D9669B00994E51 /* Reusable.swift */; };
 		EFA2754725D969D700994E51 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2754625D969D700994E51 /* SampleCell.swift */; };
+		EFA2754B25D98B7000994E51 /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2754A25D98B7000994E51 /* SecondCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EFA2753925D941DC00994E51 /* CompositionCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionCollectionVC.swift; sourceTree = "<group>"; };
 		EFA2753F25D9669B00994E51 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		EFA2754625D969D700994E51 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
+		EFA2754A25D98B7000994E51 /* SecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				EFA2754625D969D700994E51 /* SampleCell.swift */,
+				EFA2754A25D98B7000994E51 /* SecondCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -141,7 +144,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Zinko Viacheslav";
 				TargetAttributes = {
 					EF380A86243D13200028C42F = {
@@ -189,6 +192,7 @@
 				EF380AA8243D328C0028C42F /* JSON+Extension.swift in Sources */,
 				EF380A8B243D13200028C42F /* AppDelegate.swift in Sources */,
 				EFA2753A25D941DC00994E51 /* CompositionCollectionVC.swift in Sources */,
+				EFA2754B25D98B7000994E51 /* SecondCell.swift in Sources */,
 				EF851599243E547300509B85 /* ViewControllerJSON.swift in Sources */,
 				EFA2754725D969D700994E51 /* SampleCell.swift in Sources */,
 				EF380A8D243D13200028C42F /* SceneDelegate.swift in Sources */,
@@ -236,6 +240,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -296,6 +301,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

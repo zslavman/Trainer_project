@@ -23,9 +23,8 @@ class CompositionCollectionVC: UIViewController {
             }
         }
     }
-    private var dataSource: UICollectionViewDiffableDataSource<Int, Int>! = nil
+    private var dataSource: UICollectionViewDiffableDataSource<SectionKind, Int>! = nil
     private var collectionView: UICollectionView!
-    
     
     
     override func viewDidLoad() {
@@ -44,6 +43,7 @@ class CompositionCollectionVC: UIViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
         collectionView.register(SampleCell.self, forCellWithReuseIdentifier: SampleCell.reuseID)
+        collectionView.register(SecondCell.self, forCellWithReuseIdentifier: SecondCell.reuseID)
         view.addSubview(collectionView)
         collectionView.delegate = self
     }
@@ -51,7 +51,7 @@ class CompositionCollectionVC: UIViewController {
     
     private func createLayout() -> UICollectionViewLayout {
         let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 20
+        config.interSectionSpacing = 40
         
         let layout = UICollectionViewCompositionalLayout(sectionProvider: {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
@@ -67,17 +67,17 @@ class CompositionCollectionVC: UIViewController {
     
     
     private func createGridLayoutSection() -> NSCollectionLayoutSection {
-        let itemLayoutSize = NSCollectionLayoutSize(widthDimension : .fractionalWidth(0.5),
-                                                    heightDimension: .fractionalHeight(1.0))
-        let leadingItem = NSCollectionLayoutItem(layoutSize: itemLayoutSize)
-        leadingItem.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        let itemSize = NSCollectionLayoutSize(widthDimension : .fractionalWidth(0.5),
+                                              heightDimension: .fractionalHeight(0.5))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         
         let containerGroupLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                                              heightDimension: .fractionalHeight(1.0))
+                                                              heightDimension: .fractionalHeight(0.5))
         let containerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: containerGroupLayoutSize,
-                                                                subitems: [leadingItem])
+                                                                subitems: [item])
         let section = NSCollectionLayoutSection(group: containerGroup)
-        section.orthogonalScrollingBehavior = .paging
+        section.orthogonalScrollingBehavior = .continuous
         return section
     }
     
@@ -87,22 +87,22 @@ class CompositionCollectionVC: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                heightDimension: .fractionalWidth(0.2))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
         let spacing = CGFloat(20)
         group.interItemSpacing = .fixed(spacing)
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = spacing
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: spacing, bottom: 0, trailing: spacing)
+        section.contentInsets = NSDirectionalEdgeInsets(top: spacing, leading: spacing, bottom: 0, trailing: spacing)
         return section
     }
     
     
     private func setupDataSource() {
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: {
-            (collectionView: UICollectionView, indexPath: IndexPath, sectionID: Int) -> UICollectionViewCell? in
-            let section = SectionKind(intVal: sectionID)
+            (collectionView: UICollectionView, indexPath: IndexPath, _ ) -> UICollectionViewCell? in
+            let section = SectionKind(intVal: indexPath.section)
             switch section {
             
             case .sectionOne_list:
@@ -112,8 +112,8 @@ class CompositionCollectionVC: UIViewController {
                 return cell
                 
             case .sectionTwo_grid:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SampleCell.reuseID,
-                                                              for: indexPath) as! SampleCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SecondCell.reuseID,
+                                                              for: indexPath) as! SecondCell
                 cell.configure(color: .green)
                 return cell
             }
@@ -123,11 +123,15 @@ class CompositionCollectionVC: UIViewController {
     
     
     func reloadData() {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
+        var snapshot = NSDiffableDataSourceSnapshot<SectionKind, Int>()
         var identifierOffset = 0
-        let itemsPerSection = 18
+        let itemsPerSection_list = 15
+        let itemsPerSection_grid = 30
+        
         SectionKind.allCases.forEach {
-            snapshot.appendSections([$0.rawValue])
+            (sectionKind) in
+            let itemsPerSection = (sectionKind == .sectionOne_list) ? itemsPerSection_list : itemsPerSection_grid
+            snapshot.appendSections([sectionKind])
             let maxIdentifier = identifierOffset + itemsPerSection
             snapshot.appendItems(Array(identifierOffset..<maxIdentifier))
             identifierOffset += itemsPerSection
@@ -141,9 +145,12 @@ class CompositionCollectionVC: UIViewController {
 //MARK: - UICollectionViewDelegate
 
 extension CompositionCollectionVC: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+        //collectionView.deselectItem(at: indexPath, animated: true)
+        print(indexPath.section, indexPath.row)
     }
+    
 }
     
     

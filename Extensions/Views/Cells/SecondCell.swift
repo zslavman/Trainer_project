@@ -1,5 +1,5 @@
 //
-//  SampleCell.swift
+//  SecondCell.swift
 //  JSON_Trainer
 //
 //  Created by Zinko Viacheslav on 14.02.2021.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SampleCell: UICollectionViewCell, Reusable {
+
+class SecondCell: UICollectionViewCell, Reusable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
+        layer.cornerRadius = 8
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1
-        layer.cornerRadius = 8
         layer.masksToBounds = true
     }
     
