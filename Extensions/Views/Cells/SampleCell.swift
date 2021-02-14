@@ -22,8 +22,8 @@ class SampleCell: UICollectionViewCell, Reusable {
     }
     
     
-    public func configure(text: String) {
-        
+    public func configure(color: UIColor) {
+        backgroundColor = color
     }
     
 }
