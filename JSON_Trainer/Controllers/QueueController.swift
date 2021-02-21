@@ -22,7 +22,7 @@ class QueueController: UIViewController {
     
     @objc private func onBttnTap() {
         print()
-        run9()
+        run10()
     }
     
     private func run1() {
@@ -193,7 +193,18 @@ class QueueController: UIViewController {
         queue.async {
             print("5", Thread.current)
         }
-        /// 1 5 2 3 4
+        /// 1 5 2 3 4 (2 3 4 могут быть в разном порядке, в зависимости от загрузки главного потока)
+    }
+    
+    
+    private func run10() {
+        let queue = DispatchQueue(label: "queue.google.com")
+        DispatchQueue.concurrentPerform(iterations: 9) {
+            (index) in
+            queue.sync {
+                print(index, Thread.current)
+            }
+        }
     }
 
 }
