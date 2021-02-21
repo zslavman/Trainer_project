@@ -177,20 +177,20 @@ extension CompositionCollectionVC: UICollectionViewDelegate {
 
 
 
-//MARK: - SwiftUI
-import SwiftUI
-struct MyProvider: PreviewProvider {
-    
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            let vc = UINavigationController(rootViewController: CompositionCollectionVC())
-            return vc
-        }
-    }
-}
+////MARK: - SwiftUI
+//import SwiftUI
+//struct MyProvider: PreviewProvider {
+//
+//    static var previews: some View {
+//        ContainerView().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct ContainerView: UIViewControllerRepresentable {
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
+//
+//        func makeUIViewController(context: Context) -> some UIViewController {
+//            let vc = UINavigationController(rootViewController: CompositionCollectionVC())
+//            return vc
+//        }
+//    }
+//}

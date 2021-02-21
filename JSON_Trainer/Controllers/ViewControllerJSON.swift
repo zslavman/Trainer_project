@@ -30,7 +30,7 @@ extension ViewController {
 
 struct InstructionsFromJSON: Decodable {
     let filterConfig : FilterConfig!
-    let purchaseItems: [PurchModel] = []
+    let purchaseItems: [PurchModel]
 }
 
 
